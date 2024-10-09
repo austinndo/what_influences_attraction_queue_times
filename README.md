@@ -49,10 +49,11 @@ All of the models utilized a 70/30 training/test split of the data. Shown below 
 
 ## 4. Assess model performance and analyze results
 
-Reviewing the LASSO coefficients, the models show strong relationships between `attendance` and `capacity`. `weather_main` did not have as strong of an impact on wait times as I initially expected. 
-Nevertheless we continue to plot weather against wait to see how the different weather values affect the queue times. 
+Reviewing the LASSO coefficients, the models show strong relationships between `attendance` and `capacity`. We take these results and map attendance and capacity vs wait times across all attractions. `weather_main` did not have as strong of an impact on wait times as I initially expected. Nevertheless we continue to plot weather against wait to see how the different weather values affect the queue times.
 
 ![attendance_wait](/assets/attendance_wait_scatter.png)
+
+![capacity_wait](/assets/capacity_wait_scatter.png)
 
 ![weather_boxplot](/assets/weather_boxplot.png)
 
@@ -60,6 +61,6 @@ The models had very similar MSE between both the train and test sets:
 
 ![mse_table](/assets/mse_table.png)
 
-As we test other attractions and a longer date range we may see different results. For our purposes, focusing on one attraction at a particular park can help identify how to manage queue times for a specific attraction that may be quite popular. Although it
-may be expected that attendance and capacity are the largest influences on overall queue times, park owners can take this into account to work on either maintaining or improving the ride capacity. In cases where this is not feasible or economical, parks may benefit from ensuring other attractions or shows are more widely available
-in order for guests to have more options and potentially lower this particular attraction's queue.
+After cleaning and modeling our data, we determined that the features most closely related to attraction wait times are **attendance** and attraction **capacity**. The overall temperature and weather can influence the queue times as well, though these features are not as significant compared to park attendance. As we test other attractions and a longer date range we may see different results. For our purposes, focusing on one attraction at a particular park can help identify how to manage queue times for a specific attraction that may be quite popular. 
+
+Although it may be expected that attendance and capacity are the largest influences on overall queue times, park owners can take this into account to work on either maintaining or improving the ride capacity. In cases where this is not feasible or economical, parks may benefit from ensuring other attractions or shows are more widely available in order for guests to have more options and potentially lower this particular attraction's queue.
