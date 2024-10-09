@@ -61,6 +61,15 @@ The models had very similar MSE between both the train and test sets:
 
 ![mse_table](/assets/mse_table.png)
 
-After cleaning and modeling our data, we determined that the features most closely related to attraction wait times are **attendance** and attraction **capacity**. The overall temperature and weather can influence the queue times as well, though these features are not as significant compared to park attendance. As we test other attractions and a longer date range we may see different results. For our purposes, focusing on one attraction at a particular park can help identify how to manage queue times for a specific attraction that may be quite popular. 
+### Summary
+
+Recall our original objective:
+**Explore theme park data to determine which features are most significant in the prediction of attraction queue times.**
+
+I began by pulling theme park data from two different parks, PortAventura World and Tivoli Gardens. The data had to be cleaned, transformed, and merged into a single dataframe before we could create train and test sets for modeling.
+
+After cleaning and modeling our data, we determined that the features most closely related to attraction wait times are **attendance** and attraction **capacity**. The capacity and attendance polynomial feature from our LASSO model had a coef of `7.042398`. The greater in magnitude the coef value is, the stronger the relationship that feature or features has on our target. The overall temperature and weather can influence the queue times as well, though these features are not as significant compared to park attendance. As we test other attractions and various date ranges we may see different results.
+
+Finally we plotted these features against wait time to visualize how the times are spread across all attractions. As expected, we can see that attendance does have a slight positive trend. Weather condition appears to impact wait times from the visualization, but across similarly performing models this feature is not as significant as attendance and capacity. We may need to investigate the relationship between weather and attendance further, as clear weather may draw more guests to the park compared to days where snow is forecasted.
 
 Although it may be expected that attendance and capacity are the largest influences on overall queue times, park owners can take this into account to work on either maintaining or improving the ride capacity. In cases where this is not feasible or economical, parks may benefit from ensuring other attractions or shows are more widely available in order for guests to have more options and potentially lower this particular attraction's queue.
